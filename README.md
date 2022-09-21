@@ -47,8 +47,11 @@ net=WhutNetClent(username='',password='')
 net.login() #登录
 net.logout() #登出
 ```
+Zhlgd Methods
+===================
+```python
 
-
+```
 
 License
 =======
