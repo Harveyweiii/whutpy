@@ -11,19 +11,30 @@ Whut Information Query for Python
 Table of Content
 ================
 * [Examples](https://github.com/Harveyweiii/whutpy#examples)
-
-* [Cwsf methods](https://github.com/Harveyweiii/whutpy#steamclient-methods)
-
-* [Whutnet methods](https://github.com/Harveyweiii/whutpy#market-methods)
-
-
-Usage
-=======
+* [Cwsf methods](https://github.com/Harveyweiii/whutpy#Cwsf-Methods)
+* [Whutnet methods](https://github.com/Harveyweiii/whutpy#Whutnet-Methods)
+* [Zhlgd Methods](https://github.com/Harveyweiii/whutpy#Zhlgd-Methods)
 
 Examples
 ========
 
+自动登录校园网
 
+```python
+
+```
+
+邮件提醒宿舍剩余电费，校园卡余额
+
+```python
+
+```
+
+查看大学期间在学校饭堂的消费并打印出来
+
+```
+
+```
 
 Cwsf Methods
 ===================
@@ -50,7 +61,18 @@ net.logout() #登出
 Zhlgd Methods
 ===================
 ```python
+username=''
+password=''
+from whutpy import zhlgd
+client=zhlgd.ZhlgdClient(username=username,password=password)
+client.login() #登录
 
+print(client.checkUnreadMessage())
+print(client.getCardConsumInfo(outputTimes=50)) #输出最近50次消费记录
+print(client.getCardConsumInfo(outputTimes=-1)) #输出所有消费记录
+print(client.getCardConsumInfo(outputTimes=50,startDate='2022-01-20',endDate='2022-09-01'))  # 输出最近50次消费记录
+client.cardCosumeToExcel(outputfile='./消费记录.xlsx',startDate='',endDate='',outputTimes=10) #消费记录输出到excel
+print(client.getCardMoney()) #查看校园卡余额
 ```
 
 License
